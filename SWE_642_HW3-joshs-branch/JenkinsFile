@@ -1,27 +1,25 @@
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage('git repo & clean') {
+        stage('git clean & repo') {
             steps {
                 /// bat "rmdir  /s /q Swe642_Project"
                 bat "git clone https://github.com/pratyushaarvapalli/Swe642_Project.git"
-                bat "mvn clean -f Swe642_Project"
+                echo 'Stage 1' 
+                
             }
         }
-        stage('install') {
+        stage('Compile') {
             steps {
-                bat "mvn install -f Swe642_Project"
+                echo 'Compiling the code ' 
             }
         }
-        stage('test') {
+        stage('Running') {
             steps {
-                bat "mvn test -f Swe642_Project"
+                echo 'Running the code' 
             }
         }
-        stage('package') {
-            steps {
-                bat "mvn package -f Swe642_Project"
-            }
-        }
+        
+        
     }
 }
