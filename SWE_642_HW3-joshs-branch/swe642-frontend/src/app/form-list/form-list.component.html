@@ -1,0 +1,22 @@
+<h2>Form List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let form of forms">
+            <td>{{form.firstName}}</td>
+            <td>{{form.lastName}}</td>
+            <td>{{form.emailId}}</td>
+            <td>
+                <button (click)="formDetails(form.id)" class="btn joshs-colors">View Details</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
