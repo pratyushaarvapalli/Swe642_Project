@@ -1,0 +1,27 @@
+pipeline {
+    agent any 
+    stages {
+        stage('git clean & repo') {
+            steps {
+                bat "rmdir  /s /q Swe642_Project"
+                bat "git clone https://github.com/pratyushaarvapalli/Swe642_Project.git"
+                echo 'Stage 1' 
+                
+            }
+        }
+        stage('Compile') {
+            steps {
+                bat "npm install"
+                bat "ng build --prod"
+                bat "ng serve"
+            }
+        }
+        stage('Running') {
+            steps {
+                echo 'Running the code' 
+            }
+        }
+        
+        
+    }
+}
