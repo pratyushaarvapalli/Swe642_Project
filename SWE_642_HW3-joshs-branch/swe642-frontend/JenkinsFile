@@ -11,9 +11,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                bat "npm install"
-                bat "ng build --prod"
-                bat "ng serve"
+                echo "Compiling"
             }
         }
         stage('Running') {
